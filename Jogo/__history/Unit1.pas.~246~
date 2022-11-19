@@ -1,0 +1,417 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, Vcl.ComCtrls,
+  Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    Label1: TLabel;
+    Button1: TButton;
+    Label2: TLabel;
+    Button2: TButton;
+    ProgressBar1: TProgressBar;
+    ProgressBar2: TProgressBar;
+    Timer1: TTimer;
+    Label3: TLabel;
+    Timer2: TTimer;
+    Button3: TButton;
+    Timer3: TTimer;
+    ProgressBar3: TProgressBar;
+    Label4: TLabel;
+    Button4: TButton;
+    Label5: TLabel;
+    ProgressBar4: TProgressBar;
+    Timer4: TTimer;
+    Button5: TButton;
+    Button6: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+    procedure Timer3Timer(Sender: TObject);
+    procedure Timer4Timer(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+  private
+    { Private declarations }
+    procedure Ferrou;
+    procedure Botoes1;
+    procedure Botoes2;
+    procedure Botoes3;
+    procedure Botoes4;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  Dinheiro: Integer=13000;
+  Nivel: Integer=0;
+  Tentativa: Integer=0;
+
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Botoes1;
+begin
+  Button2.Visible := true;
+  label3.Visible := true;
+  ProgressBar2.Visible := true;
+end;
+
+procedure TForm1.Botoes2;
+begin
+  Button3.Visible := true;
+  label4.Visible := true;
+  ProgressBar3.Visible := true;
+end;
+
+procedure TForm1.Botoes3;
+begin
+  Button4.Visible := true;
+  label5.Visible := true;
+  ProgressBar4.Visible := true;
+end;
+
+procedure TForm1.Botoes4;
+begin
+  Button5.Visible := true;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Timer1.Enabled := true;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  Timer2.Enabled := true;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  Timer3.Enabled := true;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  if (Nivel = 0) or (Nivel = 2) then
+    Timer4.Enabled := true;
+  if Nivel = 1 then
+    Ferrou;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+  if(Nivel = 0) then
+  begin
+    ProgressBar1.Position:= 0;
+    ProgressBar2.Position:= 0;
+    ProgressBar3.Position:= 0;
+    ProgressBar4.Position:= 0;
+    Timer1.Enabled:= false;
+    Timer2.Enabled:= false;
+    Timer3.Enabled:= false;
+    Timer4.Enabled:= false;
+    ShowMessage('Vocé após tanto trabalhar voce decide abrir uma empresa');
+    ShowMessage('Agora voce ira contratar todas as pessoas para quem vc trabalhou');
+    ShowMessage('Chegou SUA vez de ser o chefe mandão');
+    showMessage('Agora provavelmente sua vida irá melhorar muito');
+    showMessage('Provavelmente');
+    showMessage('Ou será que não');
+    Button1.Caption:= 'Contratar';
+    Button2.Caption:= 'Contratar';
+    Button3.Caption:= 'Contratar';
+    Button4.Caption:= 'Contratar';
+    Button2.Visible:= false;
+    Button3.Visible:= false;
+    Button4.Visible:= false;
+    Button5.Visible:= false;
+    label2.Caption:= 'Contratar Mamacos';
+    label3.Caption:= 'Contratar Mendigos';
+    label4.Caption:= 'Contratar Agiotas';
+    label5.Caption:= 'Contratar Crianças';
+    label3.Visible:= false;
+    label4.Visible:= false;
+    label5.Visible:= false;
+    ProgressBar2.Visible:= false;
+    ProgressBar3.Visible:= false;
+    ProgressBar4.Visible:= false;
+    Dinheiro:= 13000;
+    label1.Caption:= 'R$:' + IntToStr(Dinheiro);
+    Nivel:= Nivel + 1;
+  end;
+  if (Nivel = 2) and (Tentativa = 0)then
+  begin
+      progressBar1.Position:= 0;
+      progressBar2.Position:= 0;
+      progressBar3.Position:= 0;
+      progressBar4.Position:= 0;
+      Timer1.Enabled:= false;
+      Timer2.Enabled:= false;
+      Timer3.Enabled:= false;
+      Timer4.Enabled:= false;
+      showMessage('Você decide arriscar tudo o que voce mendigou');
+      showMessage('E.....');
+      showMessage('Você perdeu :(');
+      Dinheiro:= 13000;
+      Tentativa:= Tentativa + 1;
+      label1.Caption:='R$:' + IntToStr(Dinheiro);
+      Button5.Visible:= false;
+  end
+  else if (Nivel = 2) and (Tentativa = 1)then
+  begin
+      progressBar1.Position:= 0;
+      progressBar2.Position:= 0;
+      progressBar3.Position:= 0;
+      progressBar4.Position:= 0;
+      Timer1.Enabled:= false;
+      Timer2.Enabled:= false;
+      Timer3.Enabled:= false;
+      Timer4.Enabled:= false;
+      showMessage('Você decide arriscar tudo mais uma vez');
+      showMessage('E.....');
+      showMessage('Você perdeu de novo :( :( :( :(');
+      Dinheiro:= 130000;
+      Tentativa:= Tentativa + 1;
+      label1.Caption:='R$:' + IntToStr(Dinheiro);
+      Button5.Visible:= false;
+  end
+  else if (Nivel = 2) and (Tentativa = 2) then
+  begin
+      progressBar1.Position:= 0;
+      progressBar2.Position:= 0;
+      progressBar3.Position:= 0;
+      progressBar4.Position:= 0;
+      Timer1.Enabled:= false;
+      Timer2.Enabled:= false;
+      Timer3.Enabled:= false;
+      Timer4.Enabled:= false;
+      showMessage('Você ja cansado, sem esperaças, decide arriscar novamente');
+      showMessage('E......');
+      showMessage('VOCÊ GANHOU!!!!!!!!!');
+      Dinheiro:= 10000000000;
+      label1.Caption:= 'R$:' + IntToStr(Dinheiro);
+      Button1.Visible:= false;
+      Button2.Visible:= false;
+      Button3.Visible:= false;
+      Button4.Visible:= false;
+      Button5.Visible:= false;
+      Button6.Visible:= True;
+      label1.Visible:= false;
+      label2.Visible:= false;
+      label3.Visible:= false;
+      label4.Visible:= false;
+      label5.Visible:= false;
+      ProgressBar1.Visible:= false;
+      ProgressBar2.Visible:= false;
+      ProgressBar3.Visible:= false;
+      ProgressBar4.Visible:= false;
+  end;
+end;
+
+
+procedure TForm1.Button6Click(Sender: TObject);
+begin
+  showMessage('FINALMENTE, Depois de tanto esforço e trabalho duro');
+  showMessage('(e sorte)');
+  showMessage('Você se torna o mais rico de todos e consegue comprar o mundo');
+  showMessage('Você transformou sua vida em um paraiso');
+  showMessage('Pena que vieram os agiotas te mataram e roubaram tudo o que você tem :)');
+  showMessage('Obrigado por jogar!!');
+  Form1.Close;
+end;
+
+procedure TForm1.Ferrou;
+begin
+  ProgressBar1.Position:= 0;
+  ProgressBar2.Position:= 0;
+  ProgressBar3.Position:= 0;
+  ProgressBar4.Position:= 0;
+  Timer1.Enabled:= false;
+  Timer2.Enabled:= false;
+  Timer3.Enabled:= false;
+  Timer4.Enabled:= false;
+  showMessage('ESSA NÃO!!!!');
+  showMessage('Após vc tentar contratar crianças vc foi processado pelos agiotas por trabalho infantil');
+  showMessage('Você não teve chances, vc acabou perdendo tudo, seus empregados e sua empresa');
+  showMessage('Os agiotas tomaram conta de todos os seus bens');
+  showMessage('E vc foi preso claro, por 5 anos');
+  showMessage('Após vc sair da prisão vc irá precisar reconstruir sua hierarquia');
+  Button1.Caption:= 'Mendigar';
+  Button2.Caption:= 'Mendigar';
+  Button3.Caption:= 'Mendigar';
+  Button4.Caption:= 'Mendigar';
+  Button5.Caption:= 'Jogar na Loteria';
+  Button2.Visible:= false;
+  Button3.Visible:= false;
+  Button4.Visible:= false;
+  Button5.Visible:= false;
+  label2.Caption:= 'Mendigar na Floresta';
+  label3.Caption:= 'Mendigar no Sitio';
+  label4.Caption:= 'Mendigar na Cidade';
+  label5.Caption:= 'Mendigar no Twitter';
+  label3.Visible:= false;
+  label4.Visible:= false;
+  label5.Visible:= false;
+  ProgressBar2.Visible:= false;
+  ProgressBar3.Visible:= false;
+  ProgressBar4.Visible:= false;
+  Dinheiro:= 130000;
+  label1.Caption:='R$:' + IntToStr(Dinheiro);
+  Nivel:= Nivel + 1;
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+  ProgressBar1.Position:= ProgressBar1.Position + 1;
+
+    if (ProgressBar1.Position = 100) and (Nivel = 0)then
+    begin
+      Dinheiro:= Dinheiro + 2;
+      label1.Caption:=('R$:' + IntToStr(Dinheiro));
+      Timer1.Enabled := false;
+      ProgressBar1.Position:= 0;
+    end;
+
+    if (Dinheiro >= 20) and (Nivel = 0) then
+      Botoes1;
+
+    if (ProgressBar1.Position = 100) and (Nivel = 1)then
+    begin
+      Dinheiro:= Dinheiro + 50;
+      label1.Caption:=('R$:' + IntToStr(Dinheiro));
+      Timer1.Enabled := false;
+      ProgressBar1.Position:= 0;
+    end;
+
+    if (Dinheiro >= 1000) and (Nivel = 1)then
+      Botoes1;
+
+    if (ProgressBar1.Position = 100) and (Nivel = 2)then
+    begin
+      Dinheiro:= Dinheiro + 1;
+      label1.Caption:=('R$:' + IntToStr(Dinheiro));
+      Timer1.Enabled := false;
+      ProgressBar1.Position:= 0;
+    end;
+
+    if (Dinheiro >= 15) and (Nivel = 2)then
+      Botoes1;
+end;
+
+procedure TForm1.Timer2Timer(Sender: TObject);
+begin
+
+  ProgressBar2.Position:= ProgressBar2.Position + 1;
+
+  if (ProgressBar2.Position = 450) and (Nivel = 0)then
+  begin
+    Dinheiro:= Dinheiro + 5;
+    label1.Caption:=('R$:' + IntToStr(Dinheiro));
+    Timer2.Enabled := false;
+    ProgressBar2.Position:= 0;
+  end;
+
+  if (Dinheiro >= 70) and (Nivel = 0) then
+    Botoes2;
+
+  if (ProgressBar2.Position = 450) and (Nivel = 1)then
+  begin
+    Dinheiro:= Dinheiro + 200;
+    label1.Caption:=('R$:' + IntToStr(Dinheiro));
+    Timer2.Enabled := false;
+    ProgressBar2.Position:= 0;
+  end;
+
+  if (Dinheiro >= 2500) and (Nivel = 1) then
+    Botoes2;
+
+  if (ProgressBar2.Position = 450) and (Nivel = 2)then
+  begin
+    Dinheiro:= Dinheiro + 2;
+    label1.Caption:=('R$:' + IntToStr(Dinheiro));
+    Timer2.Enabled := false;
+    ProgressBar2.Position:= 0;
+  end;
+
+  if (Dinheiro >= 40) and (Nivel = 2) then
+    Botoes2;
+end;
+
+procedure TForm1.Timer3Timer(Sender: TObject);
+begin
+
+  ProgressBar3.Position:= ProgressBar3.Position + 1;
+
+  if (ProgressBar3.Position = 1000) and (Nivel = 0)then
+  begin
+    Dinheiro:= Dinheiro + 20;
+    label1.Caption:=('R$:' + IntToStr(Dinheiro));
+    Timer3.Enabled := false;
+    ProgressBar3.Position:= 0;
+  end;
+
+  if (Dinheiro >= 200) and (Nivel = 0) then
+    Botoes3;
+
+  if (ProgressBar3.Position = 1000) and (Nivel = 1)then
+  begin
+    Dinheiro:= Dinheiro + 500;
+    label1.Caption:=('R$:' + IntToStr(Dinheiro));
+    Timer3.Enabled := false;
+    ProgressBar3.Position:= 0;
+  end;
+
+  if (Dinheiro >=  5000) and (Nivel = 1) then
+    Botoes3;
+
+  if (ProgressBar3.Position = 1000) and (Nivel = 2)then
+  begin
+    Dinheiro:= Dinheiro + 5;
+    label1.Caption:=('R$:' + IntToStr(Dinheiro));
+    Timer3.Enabled := false;
+    ProgressBar3.Position:= 0;
+  end;
+
+  if (Dinheiro >=  100) and (Nivel = 2) then
+    Botoes3;
+
+end;
+
+procedure TForm1.Timer4Timer(Sender: TObject);
+begin
+
+  ProgressBar4.Position:= ProgressBar4.Position + 1;
+
+  if (ProgressBar4.Position = 2000) and (Nivel = 0)then
+  begin
+    Dinheiro:= Dinheiro + 100;
+    label1.Caption:=('R$:' + IntToStr(Dinheiro));
+    Timer4.Enabled := false;
+    ProgressBar4.Position:= 0;
+  end;
+
+  if (Dinheiro >= 600) and (Nivel = 0) then
+    Botoes4;
+
+  if (ProgressBar4.Position = 2000) and (Nivel = 2)then
+  begin
+    Dinheiro:= Dinheiro + 15;
+    label1.Caption:=('R$:' + IntToStr(Dinheiro));
+    Timer4.Enabled := false;
+    ProgressBar4.Position:= 0;
+  end;
+
+  if (Dinheiro >= 185) and (Nivel = 2) then
+    Botoes4;
+end;
+end.
