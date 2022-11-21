@@ -162,7 +162,7 @@ begin
     2:
     begin
       case pProgresso of
-        2000: Dinheiro:= Dinheiro + 40;
+        2000: Dinheiro:= Dinheiro + 100;
         1000: Dinheiro:= Dinheiro + 10;
         450:  Dinheiro:= Dinheiro + 3;
         100:  Dinheiro:= Dinheiro + 1

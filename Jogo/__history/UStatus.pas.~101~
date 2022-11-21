@@ -102,7 +102,6 @@ begin
 
     2:
     begin
-
       case TentativaLoterica of
 
         0:
@@ -141,7 +140,7 @@ begin
 
     0:
     begin
-      case pProgresso of
+      case Dinheiro of
         2000: Dinheiro:= Dinheiro + 100;
         1000: Dinheiro:= Dinheiro + 20;
         450:  Dinheiro:= Dinheiro + 5;
@@ -151,21 +150,21 @@ begin
 
     1:
     begin
-      case pProgresso of
-        2000: Dinheiro:= Dinheiro + 300;
-        1000: Dinheiro:= Dinheiro + 100;
-        450:  Dinheiro:= Dinheiro + 20;
-        100:  Dinheiro:= Dinheiro + 5
+      case Dinheiro of
+        2000: Dinheiro:= Dinheiro + 100;
+        1000: Dinheiro:= Dinheiro + 20;
+        450:  Dinheiro:= Dinheiro + 5;
+        100:  Dinheiro:= Dinheiro + 2
       end;
     end;
 
     2:
     begin
-      case pProgresso of
-        2000: Dinheiro:= Dinheiro + 40;
-        1000: Dinheiro:= Dinheiro + 10;
-        450:  Dinheiro:= Dinheiro + 3;
-        100:  Dinheiro:= Dinheiro + 1
+      case Dinheiro of
+        2000: Dinheiro:= Dinheiro + 100;
+        1000: Dinheiro:= Dinheiro + 20;
+        450:  Dinheiro:= Dinheiro + 5;
+        100:  Dinheiro:= Dinheiro + 2
       end;
     end;
   end;
@@ -192,9 +191,9 @@ begin
     1:
     begin
       case Dinheiro of
-        500..999999: Result := 4;
-        150..499:    Result := 3;
-        50..149:     Result := 2;
+        200..999999: Result := 4;
+        100..199:    Result := 3;
+        50..99:      Result := 2;
         20..49:      Result := 1
       end;
     end;
@@ -202,10 +201,10 @@ begin
     2:
     begin
       case Dinheiro of
-        80..9999999: Result := 4;
-        50..79:      Result := 3;
-        20..49:      Result := 2;
-        5..19:       Result := 1
+        400..999999: Result := 4;
+        200..399:      Result := 3;
+        100..199:      Result := 2;
+        50..99:      Result := 1
       end;
     end;
 

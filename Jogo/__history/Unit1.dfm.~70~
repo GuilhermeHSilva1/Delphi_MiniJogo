@@ -16,9 +16,9 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 8
     Top = 8
-    Width = 33
+    Width = 45
     Height = 23
-    Caption = 'R$:'
+    Caption = 'R$:0'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -142,12 +142,12 @@ object Form1: TForm1
   end
   object Button6: TButton
     Left = 8
-    Top = 8
+    Top = 32
     Width = 359
-    Height = 292
+    Height = 268
     Caption = 'COMPRAR O MUNDO'
-    Enabled = False
     TabOrder = 9
+    Visible = False
     OnClick = Button6Click
   end
   object Timer1: TTimer

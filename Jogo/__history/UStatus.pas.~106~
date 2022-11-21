@@ -162,10 +162,10 @@ begin
     2:
     begin
       case pProgresso of
-        2000: Dinheiro:= Dinheiro + 40;
-        1000: Dinheiro:= Dinheiro + 10;
-        450:  Dinheiro:= Dinheiro + 3;
-        100:  Dinheiro:= Dinheiro + 1
+        2000: Dinheiro:= Dinheiro + 100;
+        1000: Dinheiro:= Dinheiro + 20;
+        450:  Dinheiro:= Dinheiro + 5;
+        100:  Dinheiro:= Dinheiro + 2
       end;
     end;
   end;
@@ -202,10 +202,10 @@ begin
     2:
     begin
       case Dinheiro of
-        80..9999999: Result := 4;
-        50..79:      Result := 3;
-        20..49:      Result := 2;
-        5..19:       Result := 1
+        400..999999: Result := 4;
+        200..399:    Result := 3;
+        100..199:    Result := 2;
+        50..99:      Result := 1
       end;
     end;
 

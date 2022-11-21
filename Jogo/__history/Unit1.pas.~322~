@@ -45,6 +45,7 @@ type
 
     FStatusJogo: TStatus;
 
+    procedure Ferrou;
     procedure outras;
     procedure botoes;
   public
@@ -120,7 +121,6 @@ begin
       Button2.Caption:= 'Contratar';
       Button3.Caption:= 'Contratar';
       Button4.Caption:= 'Contratar';
-      Button5.Caption:= 'Criar impresas Multinacionais';
       label2.Caption:= 'Contratar Mamacos';
       label3.Caption:= 'Contratar Mendigos';
       label4.Caption:= 'Contratar Agiotas';
@@ -148,17 +148,6 @@ begin
   label1.Caption:= 'R$:' + IntToStr(FStatusJogo.xDinheiro);
 end;
 
-procedure TForm1.Button6Click(Sender: TObject);
-begin
-  showMessage('FINALMENTE, Depois de tanto esforço e trabalho duro');
-  showMessage('(e sorte)');
-  showMessage('Você se torna o mais rico de todos e consegue comprar o mundo');
-  showMessage('Você transformou sua vida em um paraiso');
-  showMessage('Pena que vieram os agiotas te mataram e roubaram tudo o que você tem :)');
-  showMessage('Obrigado por jogar!!');
-  Form1.Close;
-end;
-
 procedure TForm1.outras;
 begin
     ProgressBar1.Position:= 0;
@@ -181,6 +170,17 @@ begin
     ProgressBar4.Visible:= false;
     FStatusJogo.xDinheiro:= 0;
     label1.Caption:= 'R$:' + IntToStr(FStatusJogo.xDinheiro);
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+begin
+  showMessage('FINALMENTE, Depois de tanto esforço e trabalho duro');
+  showMessage('(e sorte)');
+  showMessage('Você se torna o mais rico de todos e consegue comprar o mundo');
+  showMessage('Você transformou sua vida em um paraiso');
+  showMessage('Pena que vieram os agiotas te mataram e roubaram tudo o que você tem :)');
+  showMessage('Obrigado por jogar!!');
+  Form1.Close;
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
